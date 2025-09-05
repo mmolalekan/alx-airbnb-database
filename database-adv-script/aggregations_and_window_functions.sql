@@ -13,6 +13,10 @@ ORDER BY
 SELECT
   property_id,
   total_bookings,
+  ROW_NUMBER() OVER (
+    ORDER BY
+      COUNT(booking_id) DESC
+  ) AS property_row,
   RANK() OVER (
     ORDER BY
       total_bookings DESC
