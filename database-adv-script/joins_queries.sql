@@ -11,7 +11,9 @@ SELECT
   u.email
 FROM
   bookings AS b
-  INNER JOIN users AS u ON b.user_id = u.user_id;
+  INNER JOIN users AS u ON b.user_id = u.user_id
+ORDER BY
+  b.booking_id ASC;
 
 -- LEFT JOIN: Retrieve all properties and their reviews
 -- A LEFT JOIN returns all records from the left table (properties)
