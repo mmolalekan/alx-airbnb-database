@@ -21,3 +21,17 @@ CREATE INDEX idx_reviews_property_id ON reviews (property_id);
 
 -- for efficiently finding all reviews by a specific user
 CREATE INDEX idx_reviews_user_id ON reviews (user_id);
+
+--Find all bookings for a specific user in a country
+EXPLAIN ANALYZE
+SELECT
+  b.booking_id,
+  b.start_date,
+  b.end_date,
+  p.city
+FROM
+  "Booking" b
+  JOIN "Property" p ON b.property_id = p.property_id
+WHERE
+  b.user_id = 'c1d9b3e6-5f4a-4c28-98e3-0d2f8a4e8d1c'
+  AND p.country = 'Nigeria';
