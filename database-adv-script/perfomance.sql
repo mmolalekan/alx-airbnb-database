@@ -47,3 +47,8 @@ FROM
   INNER JOIN users AS u ON b.user_id = u.user_id
   INNER JOIN properties AS p ON b.property_id = p.property_id
   INNER JOIN payments AS py ON b.booking_id = py.booking_id;
+
+WHERE
+  b.status = 'confirmed'
+  AND b.start_date >= DATE '2025-10-01'
+  AND p.city = 'New York';
