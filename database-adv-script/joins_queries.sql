@@ -18,8 +18,13 @@ FROM
 -- and the matched records from the right table (reviews).
 SELECT
   p.property_id,
+  p.host_id,
   p.name AS property_name,
+  p.country,
+  p.city,
+  p.street_address,
   p.price_per_night,
+  p.description,
   r.review_id,
   r.rating,
   r.comment,
